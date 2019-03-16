@@ -1,0 +1,156 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.3rem;
+  margin: 0;
+  padding: 0;
+  background-color: milk;
+}
+/**Race Filter Css
+*/
+#race_filter {
+  margin-left: auto;
+  margin-right: auto;
+  .filter_container {
+    margin-left: auto;
+    margin-right: auto;
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid #e7e7e7;
+      background-color: #f3f3f3;
+
+      li {
+        float: left;
+        padding: 14px 1px;
+
+        @media screen and (max-width: 665px) {
+          width: 100%;
+          float: none;
+          display: block;
+          padding: 0px 0px;
+        }
+
+        a {
+          display: inline;
+          color: #000;
+          padding: 14px 16px;
+          text-decoration: none;
+          cursor: pointer;
+          text-align: center;
+
+          @media screen and (max-width: 665px) {
+            float: none;
+            display: block;
+            padding: 2px 2px;
+          }
+          /* Change the link color on hover */
+        }
+        a:hover {
+          background-color: #555;
+          color: white;
+        }
+        a.active {
+          background-color: black;
+          color: white;
+        }
+        a:hover:not(.active) {
+          background-color: #555;
+          color: white;
+        }
+      }
+    }
+  }
+}
+/*  App Stylings */
+
+.ui_container {
+  margin-left: auto;
+  margin-right: auto;
+
+  .ui_nav_filter {
+    // margin-right: 20px;
+
+    // position: fixed;
+    // display: block;
+  }
+
+  .ui_body {
+    padding: 1px 16px;
+    position: absolute;
+    overflow: auto;
+    margin-top: 50px;
+  }
+}
+
+.next_race {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+  .next_container {
+    border: 1px solid black;
+    width: 300px;
+    background-color: #000;
+
+    .next_top {
+      display: block;
+      color: white;
+      .first_layer {
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 8px 0px;
+        border-bottom: 1px solid white;
+        .first {
+          display: inline;
+        }
+        .second {
+          display: inline;
+          float: right;
+        }
+      }
+      .second_layer {
+        display: block;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 8px 0px;
+
+        .third {
+          display: inline;
+        }
+        .fourth {
+          display: inline;
+          float: right;
+        }
+      }
+    }
+    .next_body {
+      margin-left: 5px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      background-color: white;
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          display: block;
+          color: #000;
+          padding: 8px 16px;
+          text-decoration: none;
+          border-bottom: 0.5px solid gray;
+
+          .odds {
+            float: right;
+            background-color: yellow;
+            width: 50px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
