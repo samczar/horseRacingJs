@@ -8,6 +8,7 @@ import {
 const initialState = {
   isLoading: false,
   data: [],
+  filter: [],
   error: false
 };
 //Race Reducer
@@ -19,6 +20,8 @@ export function appState(state = initialState, action) {
       return { ...state, data: action.payload, isLoading: false };
     case LOAD_DATA_FAILURE:
       return { ...state, error: true, isLoading: false };
+    case SELECT_RACE:
+      return { ...state, filter: action.payload };
     default:
       return state;
   }
@@ -32,12 +35,4 @@ export function activeRaceReducers() {
     { race_type: "J", discription: "Filter button: Jump" },
     { race_type: "T", discription: "Filter button: Trot" }
   ];
-}
-//Made it an array to hold active states independently
-export function reducer_active_race(state = [], action) {
-  switch (action.type) {
-    case SELECT_RACE:
-      return action.payload;
-  }
-  return state;
 }

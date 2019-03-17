@@ -3,6 +3,7 @@ import { baseLink } from "../components/apis/datasource";
 export const SHOW_ALL = "SHOW_ALL";
 export const SELECT_RACE = "SELECT_RACE";
 export const DISPLAY_TIME = "DISPLAY_TIME";
+export const ACTIVE = "ACTIVE";
 export const SET_VISIBILITY_FILTER = "SET_VISIBILITY_FILTER";
 export const LOAD_DATA_SUCCESS = "LOAD_DATA_SUCCESS";
 export const LOAD_DATA_REQUEST = "LOAD_DATA_REQUEST";
@@ -27,12 +28,19 @@ export function loadData(params) {
 }
 
 export function selectRace(race) {
-  // console.log("A race has being selected", race.race_type);
-  //selectRace is an action creator it needs to return
-  // an object with a type property
-  console.log("race", race.race_type);
-  return {
-    type: SELECT_RACE,
-    payload: race.race_type
+  return function(dispatch, getStore) {
+    const { filter } = getStore().appState;
+    let hold = [];
+    if (filter.includes(race)) {
+      hold = filter.filter(el => el !== race);
+    } else {
+      hold = [...new Set([...filter, race])];
+    }
+    return dispatch({
+      type: SELECT_RACE,
+      payload: hold
+    });
   };
 }
+
+export function active(activate) {}
