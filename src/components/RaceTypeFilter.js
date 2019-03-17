@@ -1,35 +1,50 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { selectRace } from "../redux/action";
+import { bindActionCreators } from "redux";
 
 class RaceTypeFilter extends Component {
+  componentWillMount() {}
   renderList() {
-    this.props.activerace;
+    return this.props.activerace.map(racetype => {
+      return (
+        <li key={this.props.activerace.indexOf(racetype) + 1}>
+          <a className="" onClick={() => this.props.selectRace(racetype)}>
+            {racetype.discription} "{racetype.race_type}"
+          </a>
+        </li>
+      );
+    });
   }
+
   render() {
-    console.log(this.props.activerace);
     return (
       <div id="race_filter">
         <div className="filter_container">
-          <ul>
-            <li>
-              <a className="active"> Filter button: Gallop ("G")</a>
-            </li>
-            <li>
-              <a>Filter button: Jump (“J”)</a>
-            </li>
-            <li>
-              <a>Filter button: Trot (“T”)</a>
-            </li>
-            <li>
-              <a>Filter button: Dogs (“D”)</a>
-            </li>
-          </ul>
+          <ul>{this.renderList()}</ul>
         </div>
       </div>
     );
   }
 }
-function mapStateToProps(state) {
-  return { activerace: state.activerace };
+
+//Anything returned from this function will end up as props
+//on the RaceType container
+function mapDispatchToProps(dispatch) {
+  //whenever select Race is called the result should be passed to all of our reducers
+  return bindActionCreators({ selectRace: selectRace }, dispatch);
 }
-export default connect(mapStateToProps)(RaceTypeFilter);
+function mapStateToProps(state) {
+  //Whatever is returned will show up as props
+  //inside of RaceType
+  console.log("active", state);
+  return {
+    activerace: state.activerace
+  };
+}
+//promote ActiveType from a component to a container - it needs to know about
+//this new dispatch method, selectRace. Make it available as a props.
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RaceTypeFilter);
