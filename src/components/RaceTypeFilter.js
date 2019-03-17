@@ -4,16 +4,20 @@ import { selectRace } from "../redux/action";
 import { bindActionCreators } from "redux";
 
 class RaceTypeFilter extends Component {
+  // state = { count: this.props };
+
+  activeState() {}
   renderList() {
     const {
       appState: { filter }
     } = this.props;
+    this.props.appState.data;
 
     return this.props.activerace.map(racetype => {
       return (
         <li key={this.props.activerace.indexOf(racetype) + 1}>
           <a
-            className={"active"}
+            className={filter.includes(racetype.race_type) ? "active" : ""}
             onClick={() => this.props.selectRace(racetype.race_type)}
           >
             {racetype.discription} "{racetype.race_type}"
