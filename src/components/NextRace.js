@@ -8,8 +8,8 @@ class NextRace extends Component {
   }
   /**
    * This function adds one to its input.
-   * @param {number} input any number
-   * @returns {number} that number, plus one.
+   * @param {number} timestamp any number
+   * @returns {string} that date.
    */
   convertTimestamp(timestamp) {
     var d = new Date(timestamp * 1000), // Convert the passed timestamp to milliseconds
@@ -133,6 +133,7 @@ class NextRace extends Component {
         data: {}
       }
     } = this.props;
+    //Call the renderList function to render the View
     return <div>{this.renderList()}</div>;
   }
 }

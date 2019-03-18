@@ -16,10 +16,21 @@ To startup this application is as easy as downloading or cloning from the github
 
 `HorseRacingJs was layout is as follows`
 
-- public( Folder)
-  - Data (Folder for Json File)
-    - data.json (file serving the data to redux)
-  - index.html (Display the compiled version of the application)
-- src (Folder housing the entire React Redux Application)  
-   components (Folder)  
-   apis (Using axios to fetch the data but fetch can also be used)
+- public `( Folder)`
+  - Data `(Folder for Json File)`
+    - data.json `(file serving the data to redux)`
+  - index.html `(Display the compiled version of the application)`
+- src `(Folder housing the entire React Redux Application)`
+  - components `(Folder)`
+    - apis `(Using axios to fetch the data but fetch can also be used)`
+      - datasources.js `(function for getting host origin to run on any url and axios call )`
+    - App.js
+    - NextRace.js
+    - RaceTypeFilter.js
+    - redux `(Folder housing our redux functions and containers )`
+      - action.js
+      - reducers.js
+      - store.js
+    - styles `(Folder for housing SASS file which is transpiled to CSS)`
+      - App.scss
+    - index.jsx

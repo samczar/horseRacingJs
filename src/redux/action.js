@@ -9,7 +9,8 @@ export const LOAD_DATA_SUCCESS = "LOAD_DATA_SUCCESS";
 export const LOAD_DATA_REQUEST = "LOAD_DATA_REQUEST";
 export const LOAD_DATA_FAILURE = "LOAD_DATA_FAILURE";
 
-//Ace ActionCreator
+//Race ActionCreator
+
 export function loadData(params) {
   return dispatch => {
     dispatch({ type: LOAD_DATA_REQUEST });
@@ -22,7 +23,7 @@ export function loadData(params) {
           type: LOAD_DATA_SUCCESS,
           payload: data.data
         });
-        console.log(data.data);
+        // console.log(data.data);
       })
       .catch(err => dispatch({ type: LOAD_DATA_FAILURE }));
   };
@@ -43,5 +44,3 @@ export function selectRace(race) {
     });
   };
 }
-
-export function active(activate) {}

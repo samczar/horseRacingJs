@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 import { selectRace } from "../redux/action";
 import { bindActionCreators } from "redux";
 
+/**
+ * Start Component That calls a List of data from Reducer
+ * It acts as the Header of the Application
+ *
+ */
 class RaceTypeFilter extends Component {
-  // state = { count: this.props };
-
-  activeState() {}
   renderList() {
     const {
       appState: { filter }
@@ -49,11 +51,6 @@ function mapStateToProps(state) {
   //inside of RaceType
   console.log("active", state);
   return { ...state };
-  // return {
-
-  //   activerace: state.activerace,
-  //   selected_race: state.selected_race
-  // };
 }
 //promote ActiveType from a component to a container - it needs to know about
 //this new dispatch method, selectRace. Make it available as a props.
