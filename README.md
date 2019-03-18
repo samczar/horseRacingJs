@@ -21,16 +21,21 @@ To startup this application is as easy as downloading or cloning from the github
     - data.json `(file serving the data to redux)`
   - index.html `(Display the compiled version of the application)`
 - src `(Folder housing the entire React Redux Application)`
+
   - components `(Folder)`
     - apis `(Using axios to fetch the data but fetch can also be used)`
       - datasources.js `(function for getting host origin to run on any url and axios call )`
-    - App.js
-    - NextRace.js
-    - RaceTypeFilter.js
+    - App.js `(A dummy component that layout the ** NextRace.js ** and ** RaceTypeFilter.js ** also calls the styles)`
+    - NextRace.js `( Smart Container for listing the Games )`
+    - RaceTypeFilter.js `( Smart Container for filtering the Games )`
     - redux `(Folder housing our redux functions and containers )`
       - action.js
-      - reducers.js
-      - store.js
+      - reducers.js (`( Function that returns pieces of the application's state)`)
+      - store.js `(A redux function for handling the data)`
     - styles `(Folder for housing SASS file which is transpiled to CSS)`
       - App.scss
-    - index.jsx
+    - index.jsx `(Calls the store, wrapping our App using the provider and setting the persist function for the localstorage of current state.)`
+
+- webpack.config.js
+- package.json
+- .babelrc

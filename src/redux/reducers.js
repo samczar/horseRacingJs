@@ -27,7 +27,9 @@ export function appState(state = initialState, action) {
   }
 }
 //Active Race Reducer
-//Responsible for creating and listing the racetype state
+//Just a function that creates a List of RaceTypes
+//Real world applications will have this list instead of extracting from the
+// racetype from the datasource then distinct it.
 export function activeRaceReducers() {
   return [
     { race_type: "D", discription: "Filter button: Dogs" },

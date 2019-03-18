@@ -38,6 +38,11 @@ class NextRace extends Component {
     return time;
   }
 
+  //Add commas to the purse amount
+  numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   renderList() {
     const {
       appState: { filter }
@@ -93,7 +98,7 @@ class NextRace extends Component {
               <div className="next_top">
                 <div className="first_layer">
                   <div className="first">
-                    <span>{data.event.country}</span>
+                    <span className="inner_space">{data.event.country}</span>
                     <span>{data.event.title}</span>
                   </div>
                   <div className="second">
@@ -102,9 +107,9 @@ class NextRace extends Component {
                 </div>
                 <div className="second_layer">
                   <div className="third">
-                    <span>{data.num_runners}</span>
-                    <span>
-                      {data.purse.amount}
+                    <span className="grayline">
+                      {data.num_runners} Runners |{" "}
+                      {this.numberWithCommas(data.purse.amount)}{" "}
                       {data.purse.currency}
                     </span>
                   </div>

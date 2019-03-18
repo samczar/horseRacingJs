@@ -1,26 +1,39 @@
+//color variables
+$color-red: #ff0000;
+$color-orange: orange;
+$color-yellow: yellow;
+$color-milk: #eae5e5;
+$color-semiwhite: #f3f3f3;
+$color-black: #000;
+$color-gray: #555;
+$color-skyblue: #4fc5ec;
+$color-grayorange: rgb(190, 192, 189);
+
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   line-height: 1.3rem;
   margin: 0;
   padding: 0;
-  background-color: milk;
+  background-color: $color-milk;
 }
 /**Race Filter Css
 */
 #race_filter {
   margin-left: auto;
   margin-right: auto;
+
   .filter_container {
     margin-left: auto;
     margin-right: auto;
+
     ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
       overflow: hidden;
-      border: 1px solid #e7e7e7;
-      background-color: #f3f3f3;
+      border: 1px solid $color-semiwhite;
+      background-color: $color-grayorange;
 
       li {
         float: left;
@@ -35,7 +48,7 @@ body {
 
         a {
           display: inline;
-          color: #000;
+          color: $color-black;
           padding: 14px 16px;
           text-decoration: none;
           cursor: pointer;
@@ -49,16 +62,16 @@ body {
           /* Change the link color on hover */
         }
         a:hover {
-          background-color: #555;
-          color: white;
+          background-color: $color-gray;
+          color: $color-milk;
         }
         a.active {
-          background-color: black;
-          color: white;
+          background-color: $color-black;
+          color: $color-milk;
         }
         a:hover:not(.active) {
-          background-color: #555;
-          color: white;
+          background-color: $color-gray;
+          color: $color-milk;
         }
       }
     }
@@ -71,10 +84,6 @@ body {
   margin-right: auto;
 
   .ui_nav_filter {
-    // margin-right: 20px;
-
-    // position: fixed;
-    // display: block;
   }
 
   .ui_body {
@@ -90,20 +99,24 @@ body {
   grid-template-columns: auto auto auto;
   padding: 10px;
   .next_container {
-    border: 1px solid black;
+    border: 1px solid $color-black;
     width: 300px;
-    background-color: #000;
+    background-color: $color-black;
 
     .next_top {
       display: block;
-      color: white;
+      color: $color-milk;
       .first_layer {
         margin-left: 5px;
         margin-right: 5px;
         padding: 8px 0px;
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid $color-semiwhite;
         .first {
           display: inline;
+          .inner_space {
+            margin-right: 10px;
+            color: $color-skyblue;
+          }
         }
         .second {
           display: inline;
@@ -118,6 +131,9 @@ body {
 
         .third {
           display: inline;
+          .grayline {
+            color: gray;
+          }
         }
         .fourth {
           display: inline;
@@ -129,7 +145,7 @@ body {
       margin-left: 5px;
       margin-right: 5px;
       margin-bottom: 5px;
-      background-color: white;
+      background-color: $color-semiwhite;
 
       ul {
         list-style-type: none;
@@ -138,14 +154,18 @@ body {
 
         li {
           display: block;
-          color: #000;
+          color: $color-black;
           padding: 8px 16px;
           text-decoration: none;
-          border-bottom: 0.5px solid gray;
+          border-bottom: 0.5px solid $color-gray;
 
           .odds {
             float: right;
-            background-color: yellow;
+            background-image: linear-gradient(
+              to bottom right,
+              $color-orange,
+              $color-yellow
+            );
             width: 50px;
             text-align: center;
           }
