@@ -40,32 +40,34 @@ To startup this application is as easy as downloading or cloning from the github
 - package.json
 - .babelrc
 
-##Question
+## Question
 
-### `How long did you spend on the test? Would you do anything differently if you had more time?`
+`How long did you spend on the test? Would you do anything differently if you had more time?`
 
-##Answer
+## Answer
 
-### `I spent roughly 3 to 4 on the entire Test from the App to the Test and Documentation. Would have made the buttons and some little elements a reuseable components of theirs so it could be used in other projects.`
+`I spent roughly 3 to 4 on the entire Test from the App to the Test and Documentation. Would have made the buttons and some little elements a reuseable components of theirs so it could be used in other projects.`
 
-##Question
+## Question
 
-### `In what ways would you adapt your component so that it could be used in many different scenarios where this component is required?`
+`In what ways would you adapt your component so that it could be used in many different scenarios where this component is required?`
 
-##Answer
+## Answer
 
-### `The NextRace.js component could be used in other projects or section of the Application to show list of the Races etc.`
+`The NextRace.js component could be used in other projects or section of the Application to show list of the Races etc.`
 
-##Question ###`What is your favorite CSS property? Why?`
+## Question
 
-##Answer
+`What is your favorite CSS property? Why?`
 
-### `The CSS Grid Layout Module offers a grid-based layout system, with rows and columns, making it easier to design web pages without having to use floats and positioning.`
+## Answer
 
-##Question
+`The CSS Grid Layout Module offers a grid-based layout system, with rows and columns, making it easier to design web pages without having to use floats and positioning.`
 
-### `What is your favorite modern JavaScript feature? Why?`
+## Question
 
-##Answer
+`What is your favorite modern JavaScript feature? Why?`
 
-### `Spread syntax and the Map . Spread syntax allows an iterable such as an array expression or string to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected, or an object expression to be expanded in places where zero or more key-value pairs (for object literals) are expected..`
+## Answer
+
+`Spread syntax and the Map . Spread syntax allows an iterable such as an array expression or string to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected, or an object expression to be expanded in places where zero or more key-value pairs (for object literals) are expected..`
