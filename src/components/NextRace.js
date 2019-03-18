@@ -6,7 +6,11 @@ class NextRace extends Component {
   componentDidMount() {
     this.props.loadData();
   }
-
+  /**
+   * This function adds one to its input.
+   * @param {number} input any number
+   * @returns {number} that number, plus one.
+   */
   convertTimestamp(timestamp) {
     var d = new Date(timestamp * 1000), // Convert the passed timestamp to milliseconds
       yyyy = d.getFullYear(),

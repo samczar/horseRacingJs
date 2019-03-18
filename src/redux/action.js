@@ -13,8 +13,9 @@ export const LOAD_DATA_FAILURE = "LOAD_DATA_FAILURE";
 export function loadData(params) {
   return dispatch => {
     dispatch({ type: LOAD_DATA_REQUEST });
-    baseLink;
-    fetch("http://localhost:8080/public/data/data.json")
+    baseLink
+      .get("/public/data/data.json")
+      // fetch("http://localhost:8080/public/data/data.json")
       .then(res => res.json())
       .then(data => {
         dispatch({
