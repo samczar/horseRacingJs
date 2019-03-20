@@ -146,7 +146,14 @@ class NextRace extends Component {
       }
     } = this.props;
     //Call the renderList function to render the View
-    return <div data-test="show">{this.renderList()}</div>;
+    return (
+      <div>
+        <div className="show">{this.renderList()}</div>
+        <div>
+          <h1>Select Races</h1>
+        </div>
+      </div>
+    );
   }
 }
 function mapStateToProps(state) {
