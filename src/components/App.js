@@ -6,7 +6,7 @@ import "../styles/App.scss";
 class App extends Component {
   render() {
     return (
-      <div data-className="ui_container">
+      <div className="ui_container">
         <div className="ui_nav_filter">
           <RaceTypeFilter />
         </div>

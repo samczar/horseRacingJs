@@ -6,11 +6,17 @@ class NextRace extends Component {
   componentDidMount() {
     this.props.loadData();
   }
+
+  currentDate(today) {
+    var today = new Date();
+    this.today = today;
+  }
   /**
    * This function adds one to its input.
    * @param {number} timestamp any number
    * @returns {string} that date.
    */
+
   convertTimestamp(timestamp) {
     var d = new Date(timestamp * 1000), // Convert the passed timestamp to milliseconds
       yyyy = d.getFullYear(),
@@ -48,8 +54,9 @@ class NextRace extends Component {
       appState: { filter }
     } = this.props;
     return this.props.appState.data
+
       .filter(el => {
-        if (filter.length === 0) return true;
+        if (filter.length < 1) return false;
         return filter.includes(el.race_type.toUpperCase());
       })
       .sort((a, b) => {

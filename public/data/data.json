@@ -2,7 +2,7 @@
   "status": "success",
   "data": [
     {
-      "id_race": "sam",
+      "id_race": 2742660,
       "race_type": "T",
       "post_time": 1544009760,
       "race_number": 9,
