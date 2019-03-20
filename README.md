@@ -23,8 +23,10 @@ To startup this application is as easy as downloading or cloning from the github
 - src `(Folder housing the entire React Redux Application)`
 
   - components `(Folder)`
-    - apis `(Using axios to fetch the data but fetch can also be used)`
-      - datasources.js `(function for getting host origin to run on any url and axios call )`
+    - apis `(URL based so fetch can also be used)`
+      - datasources.js `(function for getting host origin to run on any url )`
+    - Test `(Folder containing the reducers unit test file)`
+      - reducer.test.js `(Reducer's Test File)`
     - App.js `(A dummy component that layout the ** NextRace.js ** and ** RaceTypeFilter.js ** also calls the styles)`
     - NextRace.js `( Smart Container for listing the Games )`
     - RaceTypeFilter.js `( Smart Container for filtering the Games )`

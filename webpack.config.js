@@ -29,7 +29,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [".js", ".jsx", ".json"]
+    extensions: [" ", ".js", ".jsx", ".json"]
   },
   output: {
     path: path.join(__dirname, "public", "js", "/dist"),

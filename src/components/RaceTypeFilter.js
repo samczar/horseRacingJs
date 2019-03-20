@@ -31,11 +31,11 @@ class RaceTypeFilter extends Component {
 
   render() {
     return (
-      <div id="race_filter">
+      <header id="race_filter">
         <div className="filter_container">
           <ul>{this.renderList()}</ul>
         </div>
-      </div>
+      </header>
     );
   }
 }
@@ -49,7 +49,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   //Whatever is returned will show up as props
   //inside of RaceType
-  console.log("active", state);
+  // console.log("active", state);
   return { ...state };
 }
 //promote ActiveType from a component to a container - it needs to know about

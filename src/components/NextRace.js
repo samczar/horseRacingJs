@@ -139,14 +139,18 @@ class NextRace extends Component {
       }
     } = this.props;
     //Call the renderList function to render the View
-    return <div>{this.renderList()}</div>;
+    return <div data-test="show">{this.renderList()}</div>;
   }
 }
 function mapStateToProps(state) {
-  console.log("state", state);
+  // console.log("state", state);
   return { ...state };
 }
 export default connect(
   mapStateToProps,
   { loadData }
 )(NextRace);
+
+/**
+ * Doing a prop-type test
+ */

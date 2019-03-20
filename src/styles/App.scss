@@ -44,6 +44,8 @@ body {
           float: none;
           display: block;
           padding: 0px 0px;
+          margin-top: 5px;
+          margin-bottom: 5px;
         }
 
         a {
@@ -53,6 +55,7 @@ body {
           text-decoration: none;
           cursor: pointer;
           text-align: center;
+          background-color: $color-milk;
 
           @media screen and (max-width: 665px) {
             float: none;
