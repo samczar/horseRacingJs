@@ -2,13 +2,15 @@ import {
   LOAD_DATA_FAILURE,
   LOAD_DATA_REQUEST,
   LOAD_DATA_SUCCESS,
-  SELECT_RACE
+  SELECT_RACE,
+  NEXT_RACE
 } from "./action";
 
 const initialState = {
   isLoading: false,
   data: [],
   filter: [],
+  getRace: [],
   error: false
 };
 //Race Reducer
@@ -22,6 +24,8 @@ export function appState(state = initialState, action) {
       return { ...state, error: true, isLoading: false };
     case SELECT_RACE:
       return { ...state, filter: action.payload };
+    case NEXT_RACE:
+      return { ...state, getRace: action.payload };
     default:
       return state;
   }

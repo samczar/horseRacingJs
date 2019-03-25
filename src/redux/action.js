@@ -5,6 +5,7 @@ export const SELECT_RACE = "SELECT_RACE";
 export const LOAD_DATA_SUCCESS = "LOAD_DATA_SUCCESS";
 export const LOAD_DATA_REQUEST = "LOAD_DATA_REQUEST";
 export const LOAD_DATA_FAILURE = "LOAD_DATA_FAILURE";
+export const NEXT_RACE = "NEXT_RACE";
 
 //Race ActionCreator
 
@@ -36,12 +37,35 @@ export function selectRace(race) {
     let hold = [];
     if (filter.includes(race)) {
       hold = filter.filter(el => el !== race);
+      console.log("hold", hold);
     } else {
       hold = [...new Set([...filter, race])];
+      console.log("unholdhold", hold);
     }
     return dispatch({
       type: SELECT_RACE,
       payload: hold
+    });
+  };
+}
+
+//state for nextRace
+export function nextRace(race) {
+  return function(dispatch, getStore) {
+    const { getRace } = getStore().appState;
+    var racehold = [];
+    var container = [];
+    var ts = Math.round(new Date().getTime() / 1000);
+    race.map(el => {
+      if (el >= ts) {
+        container.push(el);
+        racehold.splice(1, 0, container[0]);
+        return racehold;
+      }
+    });
+    return dispatch({
+      type: NEXT_RACE,
+      payload: racehold
     });
   };
 }

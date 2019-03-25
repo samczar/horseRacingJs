@@ -1,63 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loadData } from "../redux/action";
+import { loadData, nextRace } from "../redux/action";
+import {
+  time2TimeAgo,
+  convertTimestamp,
+  numberWithCommas
+} from "../../Utils/helpers";
 
 class NextRace extends Component {
   componentDidMount() {
     this.props.loadData();
-  }
-
-  currentDate(today) {
-    var today = new Date();
-    this.today = today;
-  }
-  /**
-   * This function adds one to its input.
-   * @param {number} timestamp any number
-   * @returns {string} that date.
-   */
-
-  convertTimestamp(timestamp) {
-    var d = new Date(timestamp * 1000), // Convert the passed timestamp to milliseconds
-      yyyy = d.getFullYear(),
-      mm = ("0" + (d.getMonth() + 1)).slice(-2), // Months are zero based. Add leading 0.
-      dd = ("0" + d.getDate()).slice(-2), // Add leading 0.
-      hh = d.getHours(),
-      h = hh,
-      min = ("0" + d.getMinutes()).slice(-2), // Add leading 0.
-      ampm = "AM",
-      time;
-
-    if (hh > 12) {
-      h = hh - 12;
-      ampm = "PM";
-    } else if (hh === 12) {
-      h = 12;
-      ampm = "PM";
-    } else if (hh == 0) {
-      h = 12;
-    }
-
-    // ie: 2013-02-18, 8:35 AM
-    time = dd + "-" + mm + "-" + yyyy + ", " + h + ":" + min + " " + ampm;
-
-    return time;
-  }
-
-  //Add commas to the purse amount
-  numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    this.props.nextRace(this.props.appState.data.map(el => el.post_time));
   }
 
   renderList() {
     const {
-      appState: { filter }
+      appState: { filter, getRace, data }
     } = this.props;
-    return this.props.appState.data
-
+    var holder = [];
+    return data
       .filter(el => {
-        if (filter.length < 1) return false;
-        return filter.includes(el.race_type.toUpperCase());
+        if (filter.length < 1) {
+          return getRace.includes(el.post_time);
+        } else {
+          return filter.includes(el.race_type.toUpperCase());
+        }
       })
       .sort((a, b) => {
         var raceA = a.race_type.toUpperCase(); // ignore upper and lowercase
@@ -109,14 +76,14 @@ class NextRace extends Component {
                     <span>{data.event.title}</span>
                   </div>
                   <div className="second">
-                    {this.convertTimestamp(data.post_time)}
+                    {convertTimestamp(data.post_time)}
                   </div>
                 </div>
                 <div className="second_layer">
                   <div className="third">
                     <span className="grayline">
                       {data.num_runners} Runners |{" "}
-                      {this.numberWithCommas(data.purse.amount)}{" "}
+                      {numberWithCommas(data.purse.amount)}{" "}
                       {data.purse.currency}
                     </span>
                   </div>
@@ -140,29 +107,29 @@ class NextRace extends Component {
   }
 
   render() {
-    const {
-      appState: {
-        data: {}
-      }
-    } = this.props;
     //Call the renderList function to render the View
     return (
       <div>
         <div className="show">{this.renderList()}</div>
-        <div>
-          <h1>Select Races</h1>
-        </div>
       </div>
     );
   }
 }
+//Anything returned from this function will end up as props
+//on the RaceType container
+// function mapDispatchToProps(dispatch) {
+//   //whenever select Race is called the result should be passed to all of our reducers
+//   return bindActionCreators({ nextRace: nextRace }, dispatch);
+// }
+
 function mapStateToProps(state) {
   // console.log("state", state);
   return { ...state };
 }
 export default connect(
   mapStateToProps,
-  { loadData }
+  // mapDispatchToProps,
+  { loadData, nextRace }
 )(NextRace);
 
 /**
