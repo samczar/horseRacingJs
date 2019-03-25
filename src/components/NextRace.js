@@ -44,10 +44,10 @@ class NextRace extends Component {
         var date1 = a.post_time;
         var date2 = b.post_time;
 
-        if (date1 < date2) {
+        if (date1 > date2) {
           return -1;
         }
-        if (date2 > date1) {
+        if (date2 < date1) {
           return 1;
         }
 
